@@ -4,6 +4,7 @@ public class ClothingItem {
     private String category;
     private String material;
     private boolean isAvailable;
+    private int count_of_item;
 
     public ClothingItem(int clothId, double price, String category, String material, boolean isAvailable) {
         this.price = price;
@@ -11,17 +12,33 @@ public class ClothingItem {
         this.category = category;
         this.material = material;
         this.isAvailable = isAvailable;
+        this.count_of_item = 2;
     }
 
     public  ClothingItem(){}
 
-    public void AvailabiityAlarm(Order order, ClothingItem item){
-        if (!item.isAvailable()){
-            System.out.println(item.getCategory() + " is not available now! So, it has deleted from order...");
-        }else {
+    public void Adding_item(Order order, ClothingItem item){
+        if (item.isAvailable() && count_of_item > 0){
             order.getClothingItems().add(item);
+            count_of_item -= 1;
+        }else{
+            if (!item.isAvailable() && count_of_item > 0){
+                System.out.println(Availability());
+            }else{
+                System.out.println(OutOfStock());
+            }
         }
     }
+
+    public String Availability(){
+        return getCategory() + " is not available now! So, it has deleted from order...";
+    }
+
+    public String OutOfStock(){
+        return getCategory() + " out of stock! So, it has deleted from order...";
+    }
+
+
 
     public double getPrice() {
         return price;
@@ -53,6 +70,22 @@ public class ClothingItem {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public int getCount_of_item() {
+        return count_of_item;
+    }
+
+    public void setCount_of_item(int count_of_item) {
+        this.count_of_item = count_of_item;
+    }
+
+    public int getClothId() {
+        return ClothId;
+    }
+
+    public void setClothId(int clothId) {
+        ClothId = clothId;
     }
 
     @Override

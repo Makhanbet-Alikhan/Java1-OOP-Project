@@ -15,16 +15,17 @@ public class Main {
                 Customer customer2 = new Customer("Bek", customer_id_counter +=1 ,40, "+70777777777");
 
                 Order Alikhan_order = new Order(customer1, order_id_counter +=1);
-                Item1.AvailabiityAlarm(Alikhan_order, Item1);
-                Item2.AvailabiityAlarm(Alikhan_order, Item2);
-
-                Order Bek_order = new Order(customer2, order_id_counter +=1);
-                Item1.AvailabiityAlarm(Bek_order, Item1);
-                Item3.AvailabiityAlarm(Bek_order, Item3);
+                Item1.Adding_item(Alikhan_order, Item1);
+                Item1.Adding_item(Alikhan_order, Item1);
+                Item2.Adding_item(Alikhan_order, Item2);
 
                 System.out.println(Alikhan_order);
                 System.out.println(Alikhan_order.getTotalPrice());
                 System.out.println(Alikhan_order.getTotalPriceWithDiscount());
+
+                Order Bek_order = new Order(customer2, order_id_counter +=1);
+                Item1.Adding_item(Bek_order, Item1);
+                Item3.Adding_item(Bek_order, Item3);
 
                 System.out.println(Bek_order);
                 System.out.println(Bek_order.getTotalPrice());
