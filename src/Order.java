@@ -28,10 +28,6 @@ public class Order {
 
     }
 
-    public static int counter(int c){
-        return c += 1;
-    }
-
     public int getOrder_id(){
         return Order_id;
     }

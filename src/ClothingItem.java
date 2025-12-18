@@ -1,17 +1,27 @@
 public class ClothingItem {
+    private int ClothId;
     private double price;
     private String category;
     private String material;
     private boolean isAvailable;
 
-    public ClothingItem(double price, String category, String material, boolean isAvailable) {
+    public ClothingItem(int clothId, double price, String category, String material, boolean isAvailable) {
         this.price = price;
+        this.ClothId = clothId;
         this.category = category;
         this.material = material;
         this.isAvailable = isAvailable;
     }
 
     public  ClothingItem(){}
+
+    public void AvailabiityAlarm(Order order, ClothingItem item){
+        if (!item.isAvailable()){
+            System.out.println(item.getCategory() + " is not available now! So, it has deleted from order...");
+        }else {
+            order.getClothingItems().add(item);
+        }
+    }
 
     public double getPrice() {
         return price;

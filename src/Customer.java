@@ -14,11 +14,6 @@ public class Customer {
 
     public Customer(){}
 
-
-    public static int counter(int c) {
-        return c += 1;
-    }
-
     public String getName(){
         return name;
     }
