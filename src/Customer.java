@@ -1,3 +1,6 @@
+import java.util.Objects;
+import java.util.Scanner;
+
 public class Customer {
     private String name;
     private int CustomerId;
@@ -13,6 +16,26 @@ public class Customer {
     }
 
     public Customer(){}
+
+    public void Change_info(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("What do you want to change? (name or phone number): ");
+        String info = in.nextLine();
+        if(Objects.equals(info, "name")){
+            System.out.print("Print new name: ");
+            String name_change = in.nextLine();
+            setName(name_change);
+        }else{
+            System.out.print("Print new phone number: ");
+            String num_change = in.nextLine();
+            setPhoneNumber(num_change);
+        }
+        in.close();
+    }
+
+    public boolean hasPhone() {
+        return phoneNumber != null && !phoneNumber.isEmpty();
+    }
 
     public String getName(){
         return name;
