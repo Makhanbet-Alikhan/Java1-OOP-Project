@@ -7,7 +7,7 @@ public class ClothingItem {
     private int count_of_item;
 
     public ClothingItem(int clothId, double price, String category, String material, boolean isAvailable) {
-        this.price = price;
+        setPrice(price);
         this.ClothId = clothId;
         this.category = category;
         this.material = material;
@@ -45,7 +45,12 @@ public class ClothingItem {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price > 0){
+            this.price = price;
+        }else{
+            System.out.println("Price value is not correct");
+        }
+
     }
 
     public String getCategory() {
