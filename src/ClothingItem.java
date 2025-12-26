@@ -6,13 +6,13 @@ public class ClothingItem {
     private boolean isAvailable;
     private int count_of_item;
 
-    public ClothingItem(int clothId, double price, String category, String material, boolean isAvailable) {
+    public ClothingItem(int clothId, double price, String category, String material, boolean isAvailable, int count_of_item) {
         setPrice(price);
         this.ClothId = clothId;
-        this.category = category;
+        setCategory(category);
         this.material = material;
         this.isAvailable = isAvailable;
-        this.count_of_item = 2;
+        setCount_of_item(count_of_item);
     }
 
     public  ClothingItem(){}
@@ -31,7 +31,7 @@ public class ClothingItem {
     }
 
     public String Availability(){
-        return getCategory() + " is not available now! So, it has deleted from order...";
+        return  getCategory() + " is not available now! So, it has deleted from order...";
     }
 
     public String OutOfStock(){
@@ -49,6 +49,7 @@ public class ClothingItem {
             this.price = price;
         }else{
             System.out.println("Price value is not correct");
+            this.price = 0;
         }
 
     }
@@ -58,6 +59,12 @@ public class ClothingItem {
     }
 
     public void setCategory(String category) {
+        if (category != null && !category.isEmpty()){
+            this.category = category;}
+        else{
+            System.out.println("Category can't be empty");
+            this.category = "No info";
+        }
         this.category = category;
     }
 
@@ -82,7 +89,13 @@ public class ClothingItem {
     }
 
     public void setCount_of_item(int count_of_item) {
-        this.count_of_item = count_of_item;
+        if (count_of_item > 0){
+            this.count_of_item = count_of_item;
+        }else{
+            System.out.println("Count of item less than 1");
+            this.count_of_item = 0;
+        }
+
     }
 
     public int getClothId() {

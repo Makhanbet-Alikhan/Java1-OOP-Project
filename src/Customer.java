@@ -8,10 +8,10 @@ public class Customer {
     private String phoneNumber;
 
     public Customer(String name, int CustomerId, double discount_type, String phoneNumber){
-        this.name = name;
+        setName(name);
         this.CustomerId = CustomerId;
-        this.discount_type = discount_type;
-        this.phoneNumber = phoneNumber;
+        setDiscount_type(discount_type);
+        setPhoneNumber(phoneNumber);
 
     }
 
@@ -33,16 +33,17 @@ public class Customer {
         in.close();
     }
 
-    public boolean hasPhone() {
-        return phoneNumber != null && !phoneNumber.isEmpty();
-    }
-
     public String getName(){
         return name;
     }
 
     public void setName(String name){
-        this.name = name;
+        if (name != null && !name.isEmpty()){
+            this.name = name;}
+        else{
+            System.out.println("Name can't be empty");
+            this.name = "No info";
+        }
     }
 
     public double getDiscount_type() {
@@ -50,7 +51,14 @@ public class Customer {
     }
 
     public void setDiscount_type(double discount_type) {
-        this.discount_type = discount_type;
+        if (discount_type >= 0){
+            this.discount_type = discount_type;
+        }
+        else{
+            System.out.println("Discount type is entered wrong");
+            this.discount_type = 0;
+        }
+
     }
 
     public int getCustomerId() {
@@ -62,7 +70,12 @@ public class Customer {
     }
 
     public void setPhoneNumber(String phoneNumber){
-        this.phoneNumber = phoneNumber;
+        if (phoneNumber != null && !phoneNumber.isEmpty()){
+            this.phoneNumber = phoneNumber;}
+        else{
+            System.out.println("Phone number can't be empty");
+            this.phoneNumber = "No info";
+        }
     }
 
     @Override
