@@ -51,7 +51,7 @@ public class Customer {
     }
 
     public void setDiscount_type(double discount_type) {
-        if (discount_type >= 0){
+        if (discount_type >= 0 && discount_type <= 100){
             this.discount_type = discount_type;
         }
         else{
